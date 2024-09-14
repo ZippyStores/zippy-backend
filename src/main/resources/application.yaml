@@ -1,0 +1,22 @@
+tenant-name: ${TENANT.NAME:local}
+env: ${SERVER.DEPLOYMENT:dev}
+server-env: ${SERVER.ENVIRONMENT:integration}
+
+server:
+  servlet:
+    context-path: /api/v1
+  port: ${SERVER.PORT:8090}
+
+spring:
+  application-name: ${APPLICATION.NAME:inventory-service}
+  datasource:
+    drive-class-name: org.postgresql.driver
+    url: ${DB_URL}
+    username: ${DB_USERNAME:avnadmin}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
